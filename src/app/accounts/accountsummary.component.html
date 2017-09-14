@@ -1,0 +1,21 @@
+<div class="row expanded">
+  <img  class="hero" src="../shared/images/monitor.jpg">
+</div>
+
+<div  class="row spacing">
+
+  <div *ngFor="let account of accounts" class="medium-4 columns">
+
+    <div class="card text-center card-spacing">    
+      <div class="card-section">
+        
+            {{account.name}}
+            {{account.balance}}
+        
+        <h4 class="list-title" (click)="choosePost(posts)">{{posts.title}}</h4>
+      </div>
+    </div>
+
+  </div>
+
+</div>
