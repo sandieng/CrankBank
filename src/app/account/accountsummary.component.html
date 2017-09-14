@@ -2,12 +2,16 @@
   <img  class="hero" src="../shared/images/monitor.jpg">
 </div>
 
+<h2>Account Summary</h2>
+
 <div  class="row spacing">
-       
+       <thead>
+         <th>Account Name</th>
+         <th>Balance</th>
+      </thead>
   <div *ngFor="let account of accounts" class="medium-4 columns">
         <tr>
-            <td>{{account.name}}</td>       
-
+            <td><a (click)="transactionDetails(account)">{{account.name}}</a></td>       
             <td>{{account.balance | currency : 'USD' : 1.-2 }}</td>
         </tr>   
   

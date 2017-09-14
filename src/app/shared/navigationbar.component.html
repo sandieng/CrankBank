@@ -1,9 +1,11 @@
 <div class="top-bar">                 
     <div>
+      
         <ul class="menu">
             <li class="nav-menu"><a [routerLink]="['/home']">Home</a></li>
             <li *ngIf="!isLoggedIn" class="nav-menu"><a [routerLink]="['/login']">Login</a></li>
             <li *ngIf="isLoggedIn" class="nav-menu"><a [routerLink]="['/logout']">Logout</a></li>
         </ul>
+  
     </div>
 </div>
