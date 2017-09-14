@@ -3,19 +3,14 @@
 </div>
 
 <div  class="row spacing">
-
+       
   <div *ngFor="let account of accounts" class="medium-4 columns">
+        <tr>
+            <td>{{account.name}}</td>       
 
-    <div class="card text-center card-spacing">    
-      <div class="card-section">
-        
-            {{account.name}}
-            {{account.balance}}
-        
-        <h4 class="list-title" (click)="choosePost(posts)">{{posts.title}}</h4>
-      </div>
-    </div>
-
+            <td>{{account.balance | currency : 'USD' : 1.-2 }}</td>
+        </tr>   
+  
   </div>
 
 </div>

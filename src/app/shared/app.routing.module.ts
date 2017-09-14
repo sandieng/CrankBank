@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule }   from '@angular/forms';
+//import { FormsModule }   from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { AccountSummaryComponent } from '../accounts/accountsummary.component';
 import { LoginComponent } from '../login/login.component';
@@ -16,7 +17,8 @@ import { ErrorComponent } from '../error/error.component';
             { path: '', component: HomeComponent },
             { path: '**', component: ErrorComponent },
         ]),
-        FormsModule,
+     //   FormsModule,
+        CommonModule
     ],
     exports: [ RouterModule ],
     declarations: [AccountSummaryComponent]
