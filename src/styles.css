@@ -12,3 +12,11 @@ h2 {
 body {
     padding: 15px;
 }
+
+tbody tr:hover {
+    background-color: #BBF0F7;
+}
+
+label {
+    width: 120px;
+}

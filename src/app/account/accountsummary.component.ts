@@ -37,4 +37,10 @@ export class AccountSummaryComponent implements OnInit, OnChanges {
   transactionDetails(account: Account) {
    this.accountTransactions = this.transactionService.getTransactions(account.id);
   }
+
+  transactionDescription(transactionId: number) {
+    let transaction = this.accountTransactions.filter(x => x.transactionId === transactionId);
+
+    alert(transaction[0].note);
+  }
 }
