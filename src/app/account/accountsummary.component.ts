@@ -1,7 +1,8 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from '../service/login.service';
+import { TransactionService } from '../service/transaction.service';
 import { Account } from '../model/account';
+import { AccountDetails } from '../model/accountdetails';
 
 @Component({
   templateUrl: './accountsummary.component.html',
@@ -9,23 +10,31 @@ import { Account } from '../model/account';
 })
 export class AccountSummaryComponent implements OnInit, OnChanges {
   title = 'Account Summary';
+  isLoggedIn: boolean;
   accounts: Account[] = [
     { id: 1, name: 'Savings Account', balance: 1982.12 },
     { id: 2, name: 'Cheque Account', balance: 500.00 },
     { id: 3, name: 'Credit Account', balance: 2391.28 }
   ];
 
-  constructor(private loginService: LoginService, private router: Router ) {}
+  accountTransactions: AccountDetails[];
+
+  constructor(private transactionService: TransactionService, private router: Router ) {}
 
   ngOnInit() {
-   
+      // if (this.loginService.isUserLoggedIn()) {
+      //   this.isLoggedIn = true;
+      // }
+      // else {
+      //   this.isLoggedIn = false;
+      // }
   }
 
   ngOnChanges() {
-  
+
   }
 
   transactionDetails(account: Account) {
-    alert(account.id);
+   this.accountTransactions = this.transactionService.getTransactions(account.id);
   }
 }

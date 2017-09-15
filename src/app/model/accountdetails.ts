@@ -1,5 +1,6 @@
 export class AccountDetails {
-    public id: number;
+    public accountId: number;
+    public transactionId: number;
     public transactionDate: Date;
     public transactionAmount: number;
 }

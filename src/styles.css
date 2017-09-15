@@ -1,4 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-th {
+/* th {
     width: 200;
+} */
+
+@import './assets/bootstrap/css/bootstrap.min.css';
+
+h2 {
+    background-color: #b37e6a
+}
+
+body {
+    padding: 15px;
 }

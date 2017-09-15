@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router ) {}
   
   ngOnInit() {
-    this.getLoginStatus();
+    //this.getLoginStatus();
   }
 
   getLoginStatus(){
@@ -24,13 +24,13 @@ export class LoginComponent implements OnInit {
     if (this.isLoggedIn) {
       this.router.navigateByUrl('/accountsummary');
     }
-
   }
 
   login() {
     this.loginService.login(this.email, this.password);
 
     if (this.loginService.isUserLoggedIn()) {
+      this.isLoggedIn = true;
       this.router.navigateByUrl('/accountsummary');
     }
   }

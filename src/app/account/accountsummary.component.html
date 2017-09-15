@@ -1,20 +1,35 @@
-<div class="row expanded">
-  <img  class="hero" src="../shared/images/monitor.jpg">
-</div>
-
 <h2>Account Summary</h2>
 
-<div  class="row spacing">
-       <thead>
-         <th>Account Name</th>
-         <th>Balance</th>
-      </thead>
-  <div *ngFor="let account of accounts" class="medium-4 columns">
-        <tr>
-            <td><a (click)="transactionDetails(account)">{{account.name}}</a></td>       
-            <td>{{account.balance | currency : 'USD' : 1.-2 }}</td>
-        </tr>   
-  
-  </div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Account Name</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let account of accounts" class="medium-4 columns">
+      <td><label><a (click)="transactionDetails(account)">{{account.name}}</a></label></td>
+      <td>{{account.balance | currency : 'USD' : 1.-2 }}</td>
+    </tr>
+  </tbody>
+</table>
 
+
+<div *ngIf="accountTransactions">
+  <h2>Transaction History</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Transaction Date</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of accountTransactions" class="medium-4 columns">
+        <td>{{transaction.transactionDate | date:'dd/MM/yyyy'}}</td>
+        <td>{{transaction.transactionAmount | currency : 'USD' : 1.-2 }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
