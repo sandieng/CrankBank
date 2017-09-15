@@ -24,11 +24,9 @@ export class TransferMoneyComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.accountsFrom = this.accountService.getAccounts();
     this.accountsTo = this.accountsFrom;
-
   }
 
   ngOnChanges() {
-
   }
 
   transferMoney() {
