@@ -1,0 +1,48 @@
+<h2>Transfer Money Between Your Accounts</h2>
+
+<div *ngIf="accountsFrom" class="row">
+    <div class="col-md-2">
+        <label>From Account</label>
+    </div>
+    <div class="col-md-8">
+        <select [(ngModel)]="selectedAccountFrom">
+           <option *ngFor="let accountFrom of accountsFrom">
+               {{accountFrom.name}}  ({{accountFrom.balance | currency: 'USD': 1.-2}})
+            </option>
+        </select>
+
+    </div>
+</div>
+
+<div *ngIf="accountsTo" class="row">
+    <div class="col-md-2">
+        <label>To Account</label>
+    </div>
+    <div class="col-md-8">
+        <select [(ngModel)]="selectedAccountTo">
+            <option *ngFor="let accountTo of accountsTo">
+                {{accountTo.name}}  ({{accountTo.balance | currency: 'USD': 1.-2}})
+            </option>
+        </select>
+    </div>
+</div>
+
+<div *ngIf="accountsTo" class="row">
+    <div class="col-md-2">
+        <label>Transfer Amount</label>
+    </div>
+    <div class="col-md-8">
+        <input type="number" placeholder="Enter Amount" id="transferAmount" [(ngModel)]="transferAmount" name="transferAmount" required
+            #amt="ngModel">
+        <div [hidden]="amt.valid || amt.pristine" class="alert callout">
+            Transfer amount required
+        </div>
+    </div>
+</div>
+
+<div class="small-12 columns">
+    <div class="expanded button-group">
+        <input [disabled]="!selectedAccountFrom || !selectedAccountTo || !transferAmount" type="button" (click)="transferMoney()"
+            value="Transfer">
+    </div>
+</div>

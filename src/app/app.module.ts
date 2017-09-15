@@ -12,6 +12,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AppRoutingModule } from './shared/app.routing.module';
 import { LoginService } from './service/login.service';
 import { TransactionService } from './service/transaction.service';
+import { AccountService } from './service/account.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { TransactionService } from './service/transaction.service';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [LoginService, TransactionService],
+  providers: [LoginService, TransactionService, AccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
