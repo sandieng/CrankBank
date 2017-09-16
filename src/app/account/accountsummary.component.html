@@ -1,35 +1,41 @@
-<h2>Account Summary</h2>
+<div *ngIf="!isLoggedIn">
+    <p>Please log in to access your accounts.</p>
+</div>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Account Name</th>
-      <th>Balance</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let account of accounts" class="medium-4 columns" (click)="transactionDetails(account)">
-      <td><label>{{account.name}}</label></td>
-      <td>{{account.balance | currency : 'USD' : 1.-2 }}</td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="isLoggedIn">
+  <h2>Account Summary</h2>
 
-
-<div *ngIf="accountTransactions">
-  <h2>Transaction History</h2>
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Transaction Date</th>
-        <th>Amount</th>
+        <th>Account Name</th>
+        <th>Balance</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let transaction of accountTransactions" class="medium-4 columns" (click)="transactionDescription(transaction.transactionId)">
-        <td>{{transaction.transactionDate | date:'dd/MM/yyyy'}}</td>
-        <td>{{transaction.transactionAmount | currency : 'USD' : 1.-2 }}</td>
+      <tr *ngFor="let account of accounts" class="medium-4 columns" (click)="transactionDetails(account)">
+        <td><label>{{account.name}}</label></td>
+        <td>{{account.balance | currency : 'USD' : 1.-2 }}</td>
       </tr>
     </tbody>
   </table>
+
+
+  <div *ngIf="accountTransactions">
+    <h2>Transaction History</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Transaction Date</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of accountTransactions" class="medium-4 columns" (click)="transactionDescription(transaction.transactionId)">
+          <td>{{transaction.transactionDate | date:'dd/MM/yyyy'}}</td>
+          <td>{{transaction.transactionAmount | currency : 'USD' : 1.-2 }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

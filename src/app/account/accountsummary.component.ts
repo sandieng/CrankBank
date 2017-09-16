@@ -22,14 +22,12 @@ export class AccountSummaryComponent implements OnInit, OnChanges {
     private loginService: LoginService,
     private router: Router) { }
 
-  ngOnInit() {
-    // if (this.loginService.isUserLoggedIn()) {
-    //   this.isLoggedIn = true;
-    // }
-    // else {
-    //   this.isLoggedIn = false;
-    // }
-    this.accounts = this.accountService.getAccounts();
+  ngOnInit() {   
+    this.isLoggedIn = this.loginService.isUserLoggedIn();
+    
+    if (this.isLoggedIn) {
+      this.accounts = this.accountService.getAccounts();
+    }
   }
 
   ngOnChanges() {
