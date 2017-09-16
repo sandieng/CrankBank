@@ -1,25 +1,31 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import { Account } from '../model/account';
-
+import { AccountType } from '../enum/accounttype';
+ 
 @Injectable()
 export class AccountService {        
     accounts: Account[] = [
-        { id: 1, name: 'Savings Account', balance: 1982.12 },
-        { id: 2, name: 'Cheque Account', balance: 500.00 },
-        { id: 3, name: 'Credit Account', balance: 2391.28 }
+        { id: AccountType.SavingsAccount, name: 'Savings Account', balance: 1000.00 },
+        { id: AccountType.ChequeAccount, name: 'Cheque Account', balance: 500.00 },
+        { id: AccountType.CreditAccount, name: 'Credit Account', balance: 300.00 }
       ];
     
     getAccounts(): Account[] {
         return this.accounts;
     }
 
-    getAccount(accountId: number): Account {
+    getAccount(accountId: AccountType): Account {
         switch (accountId)
         {
-            case 1: return this.accounts[0];
-            case 2: return this.accounts[1];
-            case 3: return this.accounts[2];
+            case AccountType.SavingsAccount: return this.accounts[0];
+            case AccountType.ChequeAccount: return this.accounts[1];
+            case AccountType.CreditAccount: return this.accounts[2];
         }
+    }
+
+    updateBalance(accountId: AccountType, amount: number) {
+        let accountToUpdate = this.accounts.filter(x => x.id === accountId)[0];
+        accountToUpdate.balance +=  amount;
     }
 }
