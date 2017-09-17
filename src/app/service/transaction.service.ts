@@ -47,18 +47,18 @@ export class TransactionService {
         return this.creditAccountTransactions;
     }
 
-    transferMoney(fromAccountId: AccountType, toAccountId: AccountType, amount: number) {
-        this.createAccountEntry(fromAccountId, amount * -1);
-        this.createAccountEntry(toAccountId, amount);
+    transferMoney(fromAccountId: AccountType, toAccountId: AccountType, amount: number, transferNote: string) {
+        this.createAccountEntry(fromAccountId, amount * -1, transferNote);
+        this.createAccountEntry(toAccountId, amount, transferNote);
     }
 
-    createAccountEntry(accountId: AccountType, amount: number) {
+    createAccountEntry(accountId: AccountType, amount: number, transferNote: string) {
         let entry = new AccountDetails();
         entry.accountId = accountId;
         entry.transactionId = this.getLastTransactionId(accountId);
         entry.transactionDate = new Date();
         entry.transactionAmount = amount;
-        entry.note = 'Money transfer between accounts';
+        entry.note = transferNote;
 
         switch (accountId) {
             case AccountType.SavingsAccount: this.savingAccountTransactions.push(entry); break;
