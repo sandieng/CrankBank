@@ -1,9 +1,14 @@
-<!-- <div class="top-bar">                 
-    <div class="col-md-4">
-      
+<div>
+    <div>
         <ul class="nav">
             <li *ngIf="isLoggedIn" class="nav-item">
                 <a class="nav-link" [routerLink]="['/home']">Home</a>
+            </li>
+            <li *ngIf="isLoggedIn" class="nav-item">
+                <a class="nav-link" [routerLink]="['/accountsummary']">Account Summary</a>
+            </li>
+            <li *ngIf="isLoggedIn" class="nav-item">
+                <a class="nav-link" [routerLink]="['/transfermoney']">Transfer Money</a>
             </li>
             <li *ngIf="!isLoggedIn" class="nav-item">
                 <a class="nav-link" [routerLink]="['/login']">Login</a>
@@ -12,6 +17,5 @@
                 <a class="nav-link" [routerLink]="['/logout']">Logout</a>
             </li>
         </ul>
-  
     </div>
-</div> -->
+</div>

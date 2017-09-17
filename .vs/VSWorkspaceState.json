@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\account"
   ],
+  "SelectedNode": "\\src\\app\\account\\accountsummary.component.html",
   "PreviewInSolutionExplorer": false
 }

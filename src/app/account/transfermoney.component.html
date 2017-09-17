@@ -3,9 +3,9 @@
 </div>
 
 <div *ngIf="isLoggedIn">
-    <h2>Transfer Money Between Your Accounts</h2>
+    <h3>Transfer Money Between Your Accounts</h3>
 
-    <div *ngIf="accountsFrom" class="row">
+    <div *ngIf="accountsFrom" class="row small-12 columns">
         <div class="col-md-2">
             <label>From Account</label>
         </div>
@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div *ngIf="accountsTo" class="row">
+    <div *ngIf="accountsTo" class="row small-12 columns">
         <div class="col-md-2">
             <label>To Account</label>
         </div>
@@ -32,25 +32,37 @@
         </div>
     </div>
 
-    <div *ngIf="accountsTo" class="row">
+    <div *ngIf="accountsTo" class="row small-12 columns">
         <div class="col-md-2">
             <label>Transfer Amount</label>
         </div>
         <div class="col-md-8">
-            <input type="number" placeholder="Enter Amount" id="transferAmount" [(ngModel)]="transferAmount" name="transferAmount" required            
-                #amt="ngModel">
-            <div [hidden]="amt.valid || amt.pristine" class="alert callout">
+            <input type="number" min="1" placeholder="Enter Amount" id="transferAmount" [(ngModel)]="transferAmount" name="transferAmount"
+                required #amt="ngModel">
+            <div [hidden]="amt.valid || amt.pristine" class="alert alert-danger">
                 Transfer amount required
             </div>
         </div>
     </div>
 
+    <div class="row" small-12 columns>
+        <div class="col-md-2">
+            <label>Description</label>
+        </div>
+        <div class="col-md-8">
+            <input type="text" placeholder="Enter Transfer Description" id="transferNote" [(ngModel)]="transferNote">
+        </div>
+    </div>
+
     <div class="small-12 columns">
         <div class="expanded button-group">
-            <input [disabled]="!selectedAccountFrom || !selectedAccountTo || !transferAmount" type="button" (click)="transferMoney()"
+            <input [disabled]="!selectedAccountFrom || !selectedAccountTo || !transferAmount" type="button" (click)="confirmTransfer()"
                 value="Transfer">
 
             <input type="button" (click)="cancelTransfer()" value="Cancel">
         </div>
     </div>
+
+
+
 </div>

@@ -4,7 +4,6 @@ import { TransactionService } from '../service/transaction.service';
 import { AccountService } from '../service/account.service';
 import { LoginService } from '../service/login.service';
 import { Account } from '../model/account';
-import { AccountDetails } from '../model/accountdetails';
 
 @Component({
   templateUrl: './accountsummary.component.html',
@@ -15,7 +14,8 @@ export class AccountSummaryComponent implements OnInit, OnChanges {
   isLoggedIn: boolean;
   accounts: Account[];
 
-  accountTransactions: AccountDetails[];
+  // Passing in account object to transactionhistory.component
+  selectedAccount: Account;
 
   constructor(private transactionService: TransactionService,
     private accountService: AccountService,
@@ -31,7 +31,6 @@ export class AccountSummaryComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-
   }
 
   transactionDetails(account: Account) {
@@ -40,19 +39,9 @@ export class AccountSummaryComponent implements OnInit, OnChanges {
     if (!this.isLoggedIn) {
       this.router.navigateByUrl('/login');
     }
-
-    this.accountTransactions = this.transactionService.getTransactions(account.id);
-  }
-
-  transactionDescription(transactionId: number) {
-    this.isLoggedIn = this.loginService.isUserLoggedIn();
-
-    if (!this.isLoggedIn) {
-      this.router.navigateByUrl('/login');
+    else {
+      // this.router.navigateByUrl('/transactionhistory' + '/' + account.id);
+      this.selectedAccount = account;
     }
-
-    let transaction = this.accountTransactions.filter(x => x.transactionId === transactionId);
-
-    alert(transaction[0].note);
-  }
+  } 
 }

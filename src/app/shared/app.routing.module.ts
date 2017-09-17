@@ -4,6 +4,7 @@ import { FormsModule }   from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { AccountSummaryComponent } from '../account/accountsummary.component';
+import { TransactionHistoryComponent } from '../account/transactionhistory.component';
 import { TransferMoneyComponent } from '../account/transfermoney.component';
 import { LoginComponent } from '../login/login.component';
 import { LogoutComponent } from '../logout/logout.component';
@@ -14,6 +15,7 @@ import { ErrorComponent } from '../error/error.component';
     imports: [
         RouterModule.forRoot([
             { path: 'accountsummary', component: AccountSummaryComponent},
+            { path: 'transactionhistory/:accountId', component: TransactionHistoryComponent},
             { path: 'transfermoney', component: TransferMoneyComponent },
             { path: 'login', component: LoginComponent },
             { path: 'logout', component: LogoutComponent },
@@ -25,6 +27,6 @@ import { ErrorComponent } from '../error/error.component';
         CommonModule
     ],
     exports: [ RouterModule ],
-    declarations: [AccountSummaryComponent, TransferMoneyComponent]
+    declarations: [AccountSummaryComponent, TransactionHistoryComponent, TransferMoneyComponent ]
 })
 export class AppRoutingModule {}

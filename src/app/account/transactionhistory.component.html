@@ -1,0 +1,20 @@
+
+<div *ngIf="accountTransactions">
+    <h3>Transaction History for {{account.name}}</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Transaction Date</th>
+                <th>Amount</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of accountTransactions" class="medium-4 columns">
+                <td>{{transaction.transactionDate | date:'dd/MM/yyyy'}}</td>
+                <td>{{transaction.transactionAmount | currency : 'USD' : 1.-2 }}</td>
+                <td>{{transaction.note}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
