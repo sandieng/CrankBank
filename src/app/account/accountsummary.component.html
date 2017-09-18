@@ -21,4 +21,28 @@
   </table>
 </div>
 
+<<<<<<< HEAD
 <transaction-history *ngIf="selectedAccount" [account]="selectedAccount"></transaction-history>
+=======
+
+  <div *ngIf="accountTransactions">
+    <h3>Transaction History</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Transaction Date</th>
+          <th>Amount</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of accountTransactions" class="medium-4 columns" (click)="transactionDescription(transaction.transactionId)">
+          <td>{{transaction.transactionDate | date:'dd/MM/yyyy'}}</td>
+          <td>{{transaction.transactionAmount | currency : 'USD' : 1.-2 }}</td>
+          <td>{{transaction.note}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+>>>>>>> cc87f9adb0be4db95359203cf394a8d1bce4fcb9
