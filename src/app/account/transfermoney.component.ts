@@ -23,7 +23,6 @@ export class TransferMoneyComponent implements OnInit, OnChanges {
   transferAmount: number;
   transferNote: string;
   transferMessage: string;
-  isTransferClicked: boolean;
   isLoggedIn: boolean;
 
   constructor(private transactionService: TransactionService,
@@ -47,26 +46,21 @@ export class TransferMoneyComponent implements OnInit, OnChanges {
 
 
   confirmTransfer() {
-    this.isTransferClicked = true;
-
     let disposable = this.dialogService.addDialog(ConfirmComponent, {
       title: 'You are about to make a money transfer',
       message: `Transferring $${this.transferAmount} from ${this.selectedAccountFrom} to ${this.selectedAccountTo}`
     })
       .subscribe((isConfirmed) => {
-        //We get dialog result
+        // We get the dialog result
         if (isConfirmed) {
           this.transferMoney();
-        }
-        else {
-          this.isTransferClicked = false;
         }
 
         disposable.unsubscribe();
       });
 
-    //We can close dialog calling disposable.unsubscribe();
-    //If dialog was not closed manually close it by timeout
+    // We can close dialog calling disposable.unsubscribe();
+    // If dialog was not closed manually close it by timeout
     // setTimeout(() => {
     //   disposable.unsubscribe();
     // }, 10000);
@@ -83,14 +77,12 @@ export class TransferMoneyComponent implements OnInit, OnChanges {
       let toAccountId = this.accountsTo.filter(x => x.name === toAccount)[0].id;
 
       if (!this.validTransfer(fromAccountId, toAccountId, this.transferAmount)) {
-        //alert(this.transferMessage);
         this.dialogService.addDialog(AlertComponent, {title:'Transfer Status', message:this.transferMessage});
         return;
       }
 
       this.transactionService.transferMoney(fromAccountId, toAccountId, this.transferAmount, this.transferNote);
 
-      //alert(this.transferMessage);
       this.dialogService.addDialog(AlertComponent, {title:'Transfer Status', message:this.transferMessage});
 
       this.router.navigateByUrl('/accountsummary');
@@ -106,7 +98,6 @@ export class TransferMoneyComponent implements OnInit, OnChanges {
     this.selectedAccountTo = null;
     this.transferNote = '';
     this.transferMessage = '';
-    this.isTransferClicked = false;
   }
 
   validTransfer(fromAccountId: AccountType, toAccountId: AccountType, transferAmount: number): boolean {

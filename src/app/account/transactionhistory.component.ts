@@ -1,6 +1,5 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs/Rx';
 import { LoginService } from '../service/login.service';
 import { TransactionService } from '../service/transaction.service';
 import { AccountDetails } from '../model/accountdetails';
@@ -14,7 +13,7 @@ export class TransactionHistoryComponent implements OnChanges {
     isLoggedIn: boolean;
     accountTransactions: AccountDetails[];
 
-    // These input object is coming in from accountsummary.component
+    // This input object is coming in from accountsummary.component.ts and accountsummary.component.html
     @Input() account: Account;
 
     constructor(private transactionService: TransactionService,
@@ -33,20 +32,8 @@ export class TransactionHistoryComponent implements OnChanges {
 
         if (!this.isLoggedIn) {
             this.router.navigateByUrl('/login');
-        } this.isLoggedIn = this.loginService.isUserLoggedIn();
-
+        } 
+        
         this.accountTransactions = this.transactionService.getTransactions(+this.account.id);
-    }
-
-    transactionDescription(transactionId: number) {
-        this.isLoggedIn = this.loginService.isUserLoggedIn();
-
-        if (!this.isLoggedIn) {
-            this.router.navigateByUrl('/login');
-        }
-
-        let transaction = this.accountTransactions.filter(x => x.transactionId === transactionId);
-
-        alert(transaction[0].note);
     }
 }

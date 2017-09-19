@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import * as firebase from 'firebase';
 import { LoginService } from '../service/login.service';
 
 @Component({ 
@@ -15,15 +14,6 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router ) {}
   
   ngOnInit() {
-    //this.getLoginStatus();
-  }
-
-  getLoginStatus(){
-    this.isLoggedIn = this.loginService.isUserLoggedIn();
-    
-    if (this.isLoggedIn) {
-      this.router.navigateByUrl('/accountsummary');
-    }
   }
 
   login() {

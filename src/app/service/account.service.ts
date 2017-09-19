@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as firebase from 'firebase';
+//import * as firebase from 'firebase';
 import { Account } from '../model/account';
 import { AccountType } from '../enum/accounttype';
  

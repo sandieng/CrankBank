@@ -1,6 +1,5 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { TransactionService } from '../service/transaction.service';
 import { AccountService } from '../service/account.service';
 import { LoginService } from '../service/login.service';
 import { Account } from '../model/account';
@@ -14,11 +13,11 @@ export class AccountSummaryComponent implements OnInit, OnChanges {
   isLoggedIn: boolean;
   accounts: Account[];
 
-  // Passing in account object to transactionhistory.component
+  // Passing in account object to transactionhistory.component.ts. 
+  // 'selectedAccount' is bound to the input parameter declared in transactionhistory.component.ts
   selectedAccount: Account;
 
-  constructor(private transactionService: TransactionService,
-    private accountService: AccountService,
+  constructor(private accountService: AccountService,
     private loginService: LoginService,
     private router: Router) { }
 
