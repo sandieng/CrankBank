@@ -25,7 +25,10 @@ export class AccountSummaryComponent implements OnInit, OnChanges {
     this.isLoggedIn = this.loginService.isUserLoggedIn();
     
     if (this.isLoggedIn) {
-      this.accounts = this.accountService.getAccounts();
+      this.accountService.getAccounts().subscribe(resp => {
+        console.log(resp);
+        this.accounts = resp;
+      })
     }
   }
 

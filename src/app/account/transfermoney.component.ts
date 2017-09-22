@@ -5,7 +5,7 @@ import { TransactionService } from '../service/transaction.service';
 import { AccountService } from '../service/account.service';
 import { LoginService } from '../service/login.service';
 import { Account } from '../model/account';
-import { AccountDetails } from '../model/accountdetails';
+import { TransactionDetails } from '../model/transactiondetails';
 import { AccountType } from '../enum/accounttype';
 import { ConfirmComponent } from '../shared/confirm.component';
 import { AlertComponent } from '../shared/alert.component';
@@ -36,8 +36,10 @@ export class TransferMoneyComponent implements OnInit, OnChanges {
     this.isLoggedIn = this.loginService.isUserLoggedIn();
 
     if (this.isLoggedIn) {
-      this.accountsFrom = this.accountService.getAccounts();
-      this.accountsTo = this.accountsFrom;
+      this.accountService.getAccounts().subscribe(resp => {
+        this.accountsFrom = resp
+        this.accountsTo = this.accountsFrom;
+      });
     }
   }
 
@@ -77,15 +79,15 @@ export class TransferMoneyComponent implements OnInit, OnChanges {
       let toAccountId = this.accountsTo.filter(x => x.name === toAccount)[0].id;
 
       if (!this.validTransfer(fromAccountId, toAccountId, this.transferAmount)) {
-        this.dialogService.addDialog(AlertComponent, {title:'Transfer Status', message:this.transferMessage});
+        this.dialogService.addDialog(AlertComponent, { title: 'Transfer Status', message: this.transferMessage });
         return;
       }
 
-      this.transactionService.transferMoney(fromAccountId, toAccountId, this.transferAmount, this.transferNote);
-
-      this.dialogService.addDialog(AlertComponent, {title:'Transfer Status', message:this.transferMessage});
-
-      this.router.navigateByUrl('/accountsummary');
+      this.transactionService.transferMoney(fromAccountId, toAccountId, this.transferAmount, this.transferNote).subscribe(resp => {
+        console.log(resp);
+        this.dialogService.addDialog(AlertComponent, { title: 'Transfer Status', message: this.transferMessage });
+        this.router.navigateByUrl('/accountsummary');
+      });
     }
     else {
       this.router.navigateByUrl('/login');

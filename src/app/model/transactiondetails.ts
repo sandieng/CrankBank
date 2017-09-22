@@ -1,6 +1,6 @@
 import { AccountType } from "../enum/accounttype";
 
-export class AccountDetails {
+export class TransactionDetails {
     public accountId: AccountType;
     public transactionId: number;
     public transactionDate: Date;

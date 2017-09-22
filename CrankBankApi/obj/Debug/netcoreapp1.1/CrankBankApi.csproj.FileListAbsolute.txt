@@ -1,0 +1,10 @@
+C:\CodeFun\CrankBank\CrankBankApi\bin\Debug\netcoreapp1.1\CrankBankApi.deps.json
+C:\CodeFun\CrankBank\CrankBankApi\bin\Debug\netcoreapp1.1\CrankBankApi.runtimeconfig.json
+C:\CodeFun\CrankBank\CrankBankApi\bin\Debug\netcoreapp1.1\CrankBankApi.runtimeconfig.dev.json
+C:\CodeFun\CrankBank\CrankBankApi\bin\Debug\netcoreapp1.1\CrankBankApi.dll
+C:\CodeFun\CrankBank\CrankBankApi\obj\Debug\netcoreapp1.1\CrankBankApi.csprojResolveAssemblyReference.cache
+C:\CodeFun\CrankBank\CrankBankApi\obj\Debug\netcoreapp1.1\CrankBankApi.csproj.CoreCompileInputs.cache
+C:\CodeFun\CrankBank\CrankBankApi\obj\Debug\netcoreapp1.1\CrankBankApi.AssemblyInfo.cs
+C:\CodeFun\CrankBank\CrankBankApi\bin\Debug\netcoreapp1.1\CrankBankApi.pdb
+C:\CodeFun\CrankBank\CrankBankApi\obj\Debug\netcoreapp1.1\CrankBankApi.dll
+C:\CodeFun\CrankBank\CrankBankApi\obj\Debug\netcoreapp1.1\CrankBankApi.pdb
