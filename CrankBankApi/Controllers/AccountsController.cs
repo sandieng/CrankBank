@@ -30,6 +30,12 @@ namespace CrankBankApi.Controllers
       return _accounts;
     }
 
+    [HttpGet("{accountId}")]
+    public Account Get(AccountType accountId)
+    {
+      return _accounts.SingleOrDefault(x => x.Id == accountId);
+    }
+
     [HttpPost]
     public ActionResult Post([FromBody] AccountUpdate updateDetails)
     {
@@ -42,6 +48,5 @@ namespace CrankBankApi.Controllers
 
       return Ok(targetAccount);
     }
-
   }
 }
