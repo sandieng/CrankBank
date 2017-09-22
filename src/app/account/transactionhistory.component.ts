@@ -21,6 +21,7 @@ export class TransactionHistoryComponent implements OnChanges {
         private router: Router) { }
 
     ngOnChanges() {
+        // If we use the navigation method, we will grab the account id from the url
         // let urlParams = this.router.url.split('/');
         // this.accountId = +urlParams[2];
 

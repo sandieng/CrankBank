@@ -1,12 +1,9 @@
 using CrankBankApi.Enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CrankBankApi.Models
 {
-    public class TransactionDetails
+  public class TransactionDetails
     {
     public AccountType AccountId { get; set; }
     public int TransactionId { get; set; }

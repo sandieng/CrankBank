@@ -1,12 +1,9 @@
-using System;
+using CrankBankApi.Enums;
+using CrankBankApi.Models;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using CrankBankApi.Models;
-using CrankBankApi.Enums;
-using Microsoft.AspNetCore.Cors;
 
 namespace CrankBankApi.Controllers
 {

@@ -1,15 +1,13 @@
+using CrankBankApi.Enums;
+using CrankBankApi.Models;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using CrankBankApi.Models;
-using CrankBankApi.Enums;
-using Microsoft.AspNetCore.Cors;
 using System.Net.Http;
 using System.Text;
-using Newtonsoft.Json;
 
 namespace CrankBankApi.Controllers
 {
@@ -24,7 +22,7 @@ namespace CrankBankApi.Controllers
     static TransactionController()
     {
       _transactionDetails.Add(new TransactionDetails { AccountId = AccountType.SavingsAccount, TransactionId = 1, TransactionDate = new DateTime(2017, 9, 1), TransactionAmount = 100, Note = "Salary" });
-      _transactionDetails.Add(new TransactionDetails { AccountId = AccountType.SavingsAccount, TransactionId = 1, TransactionDate = new DateTime(2017, 9, 1), TransactionAmount = 50, Note = "Divident" });
+      _transactionDetails.Add(new TransactionDetails { AccountId = AccountType.SavingsAccount, TransactionId = 1, TransactionDate = new DateTime(2017, 9, 1), TransactionAmount = 50, Note = "Dividend" });
       _transactionDetails.Add(new TransactionDetails { AccountId = AccountType.SavingsAccount, TransactionId = 1, TransactionDate = new DateTime(2017, 9, 1), TransactionAmount = -80, Note = "Groceries" });
 
       _transactionDetails.Add(new TransactionDetails { AccountId = AccountType.ChequeAccount, TransactionId = 1, TransactionDate = new DateTime(2017, 9, 1), TransactionAmount = 75, Note = "Overtime" });

@@ -42,7 +42,10 @@ export class AccountSummaryComponent implements OnInit, OnChanges {
       this.router.navigateByUrl('/login');
     }
     else {
+      // Here, we use the navigation method to get to the transaction history component
       // this.router.navigateByUrl('/transactionhistory' + '/' + account.id);
+
+      // We uses @Input() to pass in the selected account to the transactionhistory.component.ts
       this.selectedAccount = account;
     }
   } 
