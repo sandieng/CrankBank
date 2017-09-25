@@ -28,7 +28,7 @@ export class LoginService implements CanActivate {
 
     verifyLogin(url: string): boolean {
         //if (this.isLoggedIn) return true;
-        if (this.isLoggedIn)
+        if (this.isLoggedIn) 
             this.router.navigateByUrl(url);
 
         this.router.navigateByUrl('/login');

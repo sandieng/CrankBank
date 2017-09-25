@@ -28,11 +28,12 @@ export class AccountSummaryComponent implements OnInit, OnChanges {
       this.accountService.getAccounts().subscribe(resp => {
         console.log(resp);
         this.accounts = resp;
+        this.selectedAccount = null;
       })
     }
   }
 
-  ngOnChanges() {
+  ngOnChanges() { 
   }
 
   transactionDetails(account: Account) {

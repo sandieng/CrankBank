@@ -20,8 +20,7 @@ export class NavigationBarComponent implements OnInit {
         this.subscription = this.loginService.getIsUserLoggedIn()
           .subscribe(resp => {
             this.isLoggedIn = resp.isLoggedIn;
-    
-            this.router.navigateByUrl(resp.url);
+            //this.router.navigateByUrl(resp.url);
           });
       }
 }
