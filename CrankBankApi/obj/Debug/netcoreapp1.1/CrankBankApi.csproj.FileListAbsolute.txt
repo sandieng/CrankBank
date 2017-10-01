@@ -18,3 +18,4 @@ C:\CodeCamp\CrankBank\CrankBankApi\bin\Debug\netcoreapp1.1\CrankBankApi.dll
 C:\CodeCamp\CrankBank\CrankBankApi\bin\Debug\netcoreapp1.1\CrankBankApi.pdb
 C:\CodeCamp\CrankBank\CrankBankApi\obj\Debug\netcoreapp1.1\CrankBankApi.dll
 C:\CodeCamp\CrankBank\CrankBankApi\obj\Debug\netcoreapp1.1\CrankBankApi.pdb
+C:\CodeCamp\CrankBank\CrankBankApi\obj\Debug\netcoreapp1.1\CrankBankApi.AssemblyInfoInputs.cache
